@@ -1,0 +1,31 @@
+{
+  "name": "playwright_cucumber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "rimraf ./reports",
+    "test:QA": "cross-env ENV=qa  cucumber-js FORCE_COLOR=0 ||true",
+    "test:DEV": "cross-env ENV=dev cucumber-js FORCE_COLOR=0 ||true",
+    "posttest": "node -r ts-node/register src/utils/generate-report.ts",
+    "test:parallel": "cucumber-js --parallel 2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.3.0",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.2.3",
+    "expect": "^30.2.0",
+    "multiple-cucumber-html-reporter": "^3.9.3",
+    "playwright": "^1.57.0",
+    "rimraf": "^6.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "winston": "^3.18.3"
+  },
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.3"
+  }
+}
